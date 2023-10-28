@@ -7,7 +7,7 @@ import time
 
 from modules import processing, images, shared, sd_samplers
 from modules.processing import process_images, Processed
-from modules.shared import opts, cmd_opts, state, Options
+from modules.shared import opts, cmd_opts, state, OptionInfo
 
 import torch
 import cv2
