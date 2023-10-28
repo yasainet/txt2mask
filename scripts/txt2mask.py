@@ -141,13 +141,13 @@ class Script(scripts.Script):
 			negative_prompt_parts = len(negative_prompts)
 
 			# predict
-            print("inference model")
-            start = time.time()
+			print("inference model")
+			start = time.time()
 			with torch.no_grad():
 				preds = model(img.repeat(prompt_parts,1,1,1), prompts)[0]
 				negative_preds = model(img.repeat(negative_prompt_parts,1,1,1), negative_prompts)[0]
-            end = time.time()
-            print(end - start)
+			end = time.time()
+ 			print(end - start)
 
 			#tests
 			if (debug):
