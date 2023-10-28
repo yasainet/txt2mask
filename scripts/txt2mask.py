@@ -20,7 +20,7 @@ from torchvision import transforms
 from matplotlib import pyplot as plt
 import numpy
 
-debug = False
+debug = True
 
 class Script(scripts.Script):
 	def title(self):
