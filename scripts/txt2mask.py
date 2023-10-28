@@ -122,7 +122,11 @@ class Script(scripts.Script):
 				# https://github.com/timojl/clipseg/raw/master/weights/rd16-uni.pth
 			
 			# non-strict, because we only stored decoder weights (not CLIP weights)
-			model.load_state_dict(torch.load(d64_file, map_location=torch.device('cuda')), strict=False);			
+			print("loading model")
+			start = time.time()
+			model.load_state_dict(torch.load(d64_file, map_location=torch.device('cuda')), strict=False);
+			end = time.time()
+			print(end - start)
 
 			transform = transforms.Compose([
 				transforms.ToTensor(),
