@@ -130,7 +130,8 @@ class Script(scripts.Script):
 
 			transform = transforms.Compose([
 				transforms.ToTensor(),
-				transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+				# transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+				transforms.Normalize((0.5, 0.5, 0.5, 0.5), (0.5, 0.5, 0.5, 0.5)),
 				transforms.Resize((512, 512)),
 			])
 			img = transform(p.init_images[0]).unsqueeze(0)
