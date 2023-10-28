@@ -142,6 +142,8 @@ class Script(scripts.Script):
 			with torch.no_grad():
 				preds = model(img.repeat(prompt_parts,1,1,1), prompts)[0]
 				negative_preds = model(img.repeat(negative_prompt_parts,1,1,1), negative_prompts)[0]
+            end = time.time()
+            print(end - start)
 
 			#tests
 			if (debug):
