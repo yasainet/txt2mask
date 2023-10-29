@@ -24,8 +24,8 @@ debug = True
 
 class Script(scripts.Script):
 	def convert_rgba_to_rgb(self, img):
-		if img.shape[-1] == 4:
-			img = img[:, :, :, :3]
+		if img.mode == 'RGBA':
+			return img.convert('RGB')
 		return img
 
 	def title(self):
@@ -133,6 +133,8 @@ class Script(scripts.Script):
 			end = time.time()
 			print(end - start)
 
+			img_pil = p.init_images[0]
+			img_pil = self.convert_rgba_to_rgb(img_pil)
 			transform = transforms.Compose([
 				transforms.ToTensor(),
 				# transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
@@ -140,7 +142,7 @@ class Script(scripts.Script):
 				transforms.Resize((512, 512)),
 			])
 			img = transform(p.init_images[0]).unsqueeze(0)
-			img = self.convert_rgba_to_rgb(img)
+			# img = self.convert_rgba_to_rgb(img)
 
 			prompts = mask_prompt.split(delimiter_string)
 			prompt_parts = len(prompts)
