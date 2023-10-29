@@ -135,6 +135,9 @@ class Script(scripts.Script):
 				transforms.Resize((512, 512)),
 			])
 			img = transform(p.init_images[0]).unsqueeze(0)
+            # RGBA to RGB conversion
+            if img.shape[1] == 4;
+                img = img[:, :3, :, :]
 
 			prompts = mask_prompt.split(delimiter_string)
 			prompt_parts = len(prompts)
