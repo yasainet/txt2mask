@@ -24,7 +24,7 @@ debug = True
 
 class Script(scripts.Script):
 	def title(self):
-		return "txt2mask v0.1.1"
+		return "txt2mask v0.1.1-yasainet"
 
 	def show(self, is_img2img):
 		return is_img2img
