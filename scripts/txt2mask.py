@@ -25,7 +25,7 @@ debug = True
 class Script(scripts.Script):
 	def convert_rgba_to_rgb(self, img):
 		if img.shape[1] == 4:
-    		img = img[:, :3, :, :]
+			img = img[:, :3, :, :]
 		return img
 
 	def title(self):
