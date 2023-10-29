@@ -24,8 +24,8 @@ debug = True
 
 class Script(scripts.Script):
 	def convert_rgba_to_rgb(self, img):
-		if img.shape[1] == 4:
-			img = img[:, :3, :, :]
+		if img.shape[-1] == 4:
+			img = img[:, :, :, :3]
 		return img
 
 	def title(self):
@@ -136,7 +136,7 @@ class Script(scripts.Script):
 			transform = transforms.Compose([
 				transforms.ToTensor(),
 				# transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-				transforms.Normalize((0.5, 0.5, 0.5, 0.5), (0.5, 0.5, 0.5, 0.5)),
+				transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
 				transforms.Resize((512, 512)),
 			])
 			img = transform(p.init_images[0]).unsqueeze(0)
