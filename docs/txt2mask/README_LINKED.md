@@ -1,4 +1,4 @@
-It was not compatible with v1.6.0, so it was corrected. However, further fixes need to be made.
+!! It was not compatible with v1.6.0, so it was corrected. However, further fixes need to be made.
 
 > **Warning**
 >
