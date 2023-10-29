@@ -23,6 +23,11 @@ import numpy
 debug = True
 
 class Script(scripts.Script):
+    def convert_rgba_to_rgb(self, img):
+		if img.shape[1] == 4:
+    		img = img[:, :3, :, :]
+		return img
+
 	def title(self):
 		return "txt2mask v0.1.1-yasainet"
 
@@ -102,7 +107,7 @@ class Script(scripts.Script):
 
 			return(final_img)
 
-		def get_mask():
+		def get_mask(self):
 			# load model
 			model = CLIPDensePredT(version='ViT-B/16', reduce_dim=64)
 			model.eval();
@@ -135,9 +140,7 @@ class Script(scripts.Script):
 				transforms.Resize((512, 512)),
 			])
 			img = transform(p.init_images[0]).unsqueeze(0)
-			# RGBA to RGB conversion
-			if img.shape[1] == 4:
-				img = img[:, :3, :, :]
+			img = self.convert_rgba_to_rgb(img)
 
 			prompts = mask_prompt.split(delimiter_string)
 			prompt_parts = len(prompts)
