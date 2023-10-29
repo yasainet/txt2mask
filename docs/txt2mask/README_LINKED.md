@@ -1,3 +1,5 @@
+It was not compatible with v1.6.0, so it was corrected. However, further fixes need to be made.
+
 > **Warning**
 >
 > This script has been superseded by my new extension, [Unprompted](https://github.com/ThereforeGames/unprompted), which has [the same powerful masking features](https://github.com/ThereforeGames/unprompted/blob/main/docs/MANUAL.md#txt2mask) and a lot more. I do not plan on updating the original script and I cannot guarantee that it will continue working in new versions of the A1111 WebUI. Thank you for understanding.
