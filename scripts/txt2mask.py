@@ -107,7 +107,7 @@ class Script(scripts.Script):
 
 			return(final_img)
 
-		def get_mask(self):
+		def get_mask():
 			# load model
 			model = CLIPDensePredT(version='ViT-B/16', reduce_dim=64)
 			model.eval();
