@@ -107,7 +107,7 @@ class Script(scripts.Script):
 
 			return(final_img)
 
-		def get_mask():
+		def get_mask(self):
 			# load model
 			model = CLIPDensePredT(version='ViT-B/16', reduce_dim=64)
 			model.eval();
@@ -141,7 +141,7 @@ class Script(scripts.Script):
 				transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
 				transforms.Resize((512, 512)),
 			])
-			img = transform(p.init_images[0]).unsqueeze(0)
+			img = transform(img_pil).unsqueeze(0)
 			# img = self.convert_rgba_to_rgb(img)
 
 			prompts = mask_prompt.split(delimiter_string)
